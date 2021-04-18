@@ -5,7 +5,8 @@ import { Link } from 'react-router-dom';
 
 class Create extends Component {
 
-  constructor() {
+  constructor(props) {
+    super(props);
 
     this.ref = db.collection('boards');
     this.state = {
@@ -41,7 +42,7 @@ class Create extends Component {
       console.error("Error adding document: ", error);
     });
   }
-
+  
   render() {
     const { title, description, author } = this.state;
     return (

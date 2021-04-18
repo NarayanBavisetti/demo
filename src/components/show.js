@@ -2,15 +2,16 @@ import React, { Component } from 'react';
 import { db } from '../firebase';
 import { Link } from 'react-router-dom';
 import Comment  from './blogComment'
+import BlogCommentList from './blogCommentList';
+import BlogCommentAdd from './blogCommentAdd';
 class Show extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
+  state = {
       board: {},
-      key: ''
+      key: '',
+      comment: ''
     };
-  }
+  
 
   componentDidMount() {
     const ref = db.collection('boards').doc(this.props.match.params.id);
@@ -19,6 +20,7 @@ class Show extends Component {
         this.setState({
           board: doc.data(),
           key: doc.id,
+          comment: doc.comment,
           isLoading: false
         });
       } else {
@@ -57,7 +59,8 @@ class Show extends Component {
             <button onClick={this.delete.bind(this, this.state.key)} class="btn btn-danger">Delete</button>
            
             <button  class="btn btn-success">Comment</button>
-          <Comment />
+         < BlogCommentAdd key={this.state.key} />
+          <BlogCommentList comment={this.state.comment} />
           </div>
         </div>
       </div>

@@ -13,7 +13,7 @@ handleCommentSubmit(){
     return(
 <div>
 <Commentadd handleCommentSubmit= {this.handleCommentSubmit} />
-<Commentlist />
+{/* <Commentlist /> */}
 
 </div>
     )
