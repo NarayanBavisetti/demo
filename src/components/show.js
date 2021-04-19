@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom';
 import Comment  from './blogComment'
 import BlogCommentList from './blogCommentList';
 import BlogCommentAdd from './blogCommentAdd';
+
 class Show extends Component {
 
-  state = {
+   constructor(props) {
+    super(props);
+    this.state = {
       board: {},
-      key: '',
-      comment: ''
+      key: ''
     };
+  }
   
 
   componentDidMount() {
@@ -58,9 +61,9 @@ class Show extends Component {
             <Link to={`/edit/${this.state.key}`} class="btn btn-success">Edit</Link>&nbsp;
             <button onClick={this.delete.bind(this, this.state.key)} class="btn btn-danger">Delete</button>
            
-            <button  class="btn btn-success">Comment</button>
-         < BlogCommentAdd key={this.state.key} />
-          <BlogCommentList comment={this.state.comment} />
+             <button  class="btn btn-success">Comment</button>
+          < BlogCommentAdd key={this.state.key} /> 
+          <BlogCommentList comment={this.state.comment} />  
           </div>
         </div>
       </div>
@@ -68,4 +71,4 @@ class Show extends Component {
   }
 }
 
-export default Show;
+export default  Show;
