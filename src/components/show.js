@@ -4,16 +4,25 @@ import { Link } from 'react-router-dom';
 import Comment  from './blogComment'
 import BlogCommentList from './blogCommentList';
 import BlogCommentAdd from './blogCommentAdd';
+import styled,{ThemeProvider} from 'styled-components'
+import {lightTheme , darkTheme , GlobalStyle} from '../theme'
+
+// const StyledApp = styled.div`
+// color: ${(props) => props.theme.fontColor}
+// `;
 
 class Show extends Component {
 
-   constructor(props) {
-    super(props);
-    this.state = {
+
+    state = {
       board: {},
-      key: ''
+      key: '',
+      // theme:"light"
     };
-  }
+    // themeToggler = () => {
+    //   this.state.theme === "light" ? this.setState({theme:"dark"}) : this.setState({theme:"light"});
+    // }
+    
   
 
   componentDidMount() {
@@ -43,6 +52,12 @@ class Show extends Component {
 
   render() {
     return (
+      // <ThemeProvider theme={this.state.theme === "light" ? lightTheme : darkTheme }>
+      // <GlobalStyle />
+      // <StyledApp>
+      // <div>
+      //   hello bavisetti
+      //   <button onClick={() => this.themeToggler()}>change theme</button>
       <div class="container">
         <div class="panel panel-default">
           <div class="panel-heading">
@@ -67,6 +82,9 @@ class Show extends Component {
           </div>
         </div>
       </div>
+//  </div>
+//       </StyledApp>
+//       </ThemeProvider>
     );
   }
 }
